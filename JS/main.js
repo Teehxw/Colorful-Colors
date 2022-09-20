@@ -4,6 +4,20 @@
 let containerE1 = document.getElementById("container");
 let inputE1 = document.getElementById("color-in");
 
+//Global Variables 
+let colors = [];
+
+//Fetch content from colors.txt
+fetch("colours.txt").then(convertData).then(processData);
+
+function convertData(rawData){
+    return rawData.text();
+}
+
+function processData(stringData){
+    console.log(stringData);
+}
+
 //Event Listener
 inputE1.addEventListener("keydown", submitHandler);
 
