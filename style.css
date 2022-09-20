@@ -1,5 +1,8 @@
 #container div{
   height: 50px;
-  width:500px;
+  width: 100%;;
 }
 
+input{
+  width: 85%;
+}
