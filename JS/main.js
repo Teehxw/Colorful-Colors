@@ -5,28 +5,28 @@ let containerE1 = document.getElementById("container");
 let inputE1 = document.getElementById("color-in");
 
 //Global Variables 
-let colors = [];
+let colors ;
 
 //Fetch content from colors.txt
-fetch("colours.txt").then(convertData).then(processData);
+fetch("colors.txt").then(convertData).then(processData);
 
 function convertData(rawData){
     return rawData.text();
 }
 
 function processData(stringData){
-    console.log(stringData);
+    colors = stringData.split("\r\n")
+    displayColors(colors);
 }
-
 //Event Listener
 inputE1.addEventListener("keydown", submitHandler);
 
 function submitHandler(event){
     if (event.keyCode ===13){
         //Create Color array based on user input
-        let inputStr = inputE1.value;
-        let colorsArray = inputStr.split(",");
-        displayColors(colorsArray)
+        colors.push(inputE1.value)
+        inputE1.value = "";
+        displayColors(colors)
     }
 }
 
