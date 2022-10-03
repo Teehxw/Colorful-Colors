@@ -22,12 +22,17 @@ function processData(stringData){
 inputE1.addEventListener("keydown", submitHandler);
 
 function submitHandler(event){
-    if (event.keyCode ===13){
-        //Create Color array based on user input
-        colors.push(inputE1.value)
-        inputE1.value = "";
-        displayColors(colors);
-    }
+      //Display all colores on page 
+      let divStr = "";
+      let count=0;
+      for (let i =0; i < colors.length; i++){
+          if (colors[i][0]==="P" || colors[i][0] ==="B") {
+            if(colors[i])
+              divStr += `<div style = "background: ${colors[i]} ">${colors[i]}</div>`
+          }
+      }   
+      containerE1.innerHTML = divStr;
+
 }
 
 function displayColors(colors){
