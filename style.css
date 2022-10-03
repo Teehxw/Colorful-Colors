@@ -1,6 +1,8 @@
 #container div{
   height: 50px;
-  width: 100%;;
+  width: 100%;
+  text-align: center;
+ 
 }
 
 input{

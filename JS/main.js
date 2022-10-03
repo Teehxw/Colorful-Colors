@@ -26,17 +26,21 @@ function submitHandler(event){
         //Create Color array based on user input
         colors.push(inputE1.value)
         inputE1.value = "";
-        displayColors(colors)
+        displayColors(colors);
     }
 }
 
 function displayColors(colors){
     //Display all colores on page 
     let divStr = "";
+    let count=0;
     for (let i =0; i < colors.length; i++){
-    divStr += `<div style = "background: ${colors[i]} "></div>`
+        if (colors[i][0]==="P" || colors[i][0] ==="B") {
+            divStr += `<div style = "background: ${colors[i]} ">${colors[i]}</div>`
+            count++;
+        }
     }   
-    containerE1.innerHTML = divStr;
+    containerE1.innerHTML = divStr + `<p>Count: ${count}</p>`;
 }
 
 
